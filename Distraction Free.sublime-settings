@@ -1,8 +1,0 @@
-{
-"word_wrap": false,
-"line_numbers": true,
-"auto_complete": false,
-// Controls auto pairing of quotes, brackets etc
-"auto_match_enabled": false,
-"gutter": true
-}
