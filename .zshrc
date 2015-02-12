@@ -1,15 +1,17 @@
-# Path to your oh-my-zsh installation.
+#Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="miloshadzic"
+# currently liking: 'miloshadzic', 'blinks', 'smt', 'dogenpunk'
+ZSH_THEME="af-magic"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias rake="noglob rake"
 
 # Mac Helpers
 alias show_hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder"
@@ -56,9 +58,15 @@ plugins=(git osx sublime)
 
 source $ZSH/oh-my-zsh.sh
 
+function mygr8() {
+  bin/rake db:migrate
+  bin/rake db:migrate RAILS_ENV=test
+}
+
 # User configuration
 
-RETRIEVE FROM PRIVATE FILES
+export PATH=$PATH:"/usr/local/bin:/usr/local/heroku/bin:/Users/roidriscoll/.rvm/gems/ruby-2.1.1/bin:/Users/roidriscoll/.rvm/gems/ruby-2.1.1@global/bin:/Users/roidriscoll/.rvm/rubies/ruby-2.1.1/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/roidriscoll/.rvm/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -75,3 +83,15 @@ RETRIEVE FROM PRIVATE FILES
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+export TESTING_MAKERS=working
+
+#############
+# FUNCTIONS
+#############
+
+mcd() { # creates a directory and places you in it
+  mkdir -p $1
+  cd $1
+}
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
